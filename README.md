@@ -9,11 +9,17 @@ Pytest
 Before running tests, make sure Pytest is installed.
 `pip install -U pytest`
 
-To run the tests, execute the command below:
+To run the tests, execute the command:
 `pytest`
 
 ### Running the cli tool
 `python3 ./src/water_flow.py <row> <column> <amount-of-water-in-litres>`
 
 ### Example
-`python3 python-water 1 1 0.25`
+`python3 ./src/water_flow.py 1 1 0.25`
+
+### Output
+`The amount in row 1, column 1 is: 0.250000`
+
+### Note
+Row and column number start with 1.
