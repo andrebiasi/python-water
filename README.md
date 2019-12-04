@@ -21,5 +21,6 @@ To run the tests, execute the command:
 ### Output
 `The amount in row 1, column 1 is: 0.250000`
 
-### Note
+### Notes
 Row and column number start with 1.
+Glass capacity is hard-coded to 250ml (0.25L)
