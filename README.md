@@ -13,7 +13,7 @@ To run the tests, execute the command below:
 `pytest`
 
 ### Running the cli tool
-`python3 python-water <glass-capacity-in-litres> <row> <column> <amount-of-water-in-litres>`
+`python3 ./src/water_flow.py <row> <column> <amount-of-water-in-litres>`
 
 ### Example
-`python3 python-water 0.25 2 2 1
+`python3 python-water 1 1 0.25`

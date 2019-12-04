@@ -119,6 +119,38 @@ def test_shouldReturnAmountInGlassInThirdRow():
     quantity = 0.45
     stack = StackOfGlasses(numberOfRows)
     stack.pour(quantity)
-    assert stack.getAmountAt(3,0) == 0
-    assert stack.getAmountAt(3,0) == 0
-    assert stack.getAmountAt(3,0) == 0
+    assert stack.getAmountAt(3,1) == 0
+    assert stack.getAmountAt(3,2) == 0
+    assert stack.getAmountAt(3,3) == 0
+
+def test_shouldRaiseExceptionWhenNegativeRowGiven():
+    numberOfRows = 1
+    quantity = 1
+    stack = StackOfGlasses(numberOfRows)
+    stack.pour(quantity)
+    with pytest.raises(ValueError):
+        assert stack.getAmountAt(-1,1)
+
+def test_shouldRaiseExceptionWhenZeroRowGiven():
+    numberOfRows = 1
+    quantity = 1
+    stack = StackOfGlasses(numberOfRows)
+    stack.pour(quantity)
+    with pytest.raises(ValueError):
+        assert stack.getAmountAt(0,1)
+
+def test_shouldRaiseExceptionWhenNegativeColumnGiven():
+    numberOfRows = 1
+    quantity = 1
+    stack = StackOfGlasses(numberOfRows)
+    stack.pour(quantity)
+    with pytest.raises(ValueError):
+        assert stack.getAmountAt(1,-1)
+
+def test_shouldRaiseExceptionWhenZeroColumnGiven():
+    numberOfRows = 1
+    quantity = 1
+    stack = StackOfGlasses(numberOfRows)
+    stack.pour(quantity)
+    with pytest.raises(ValueError):
+        assert stack.getAmountAt(1,0)
