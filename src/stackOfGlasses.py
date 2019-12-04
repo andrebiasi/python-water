@@ -12,17 +12,29 @@ class StackOfGlasses:
 
         self.stack = []
         for row in range(numberOfRows):
-            rowOfGlasses = []
-            for column in range(row):
-                rowOfGlasses.append(Glass(GLASS_CAPACITY))
-            self.stack.append(rowOfGlasses)
+            numberOfColumns = row + 1
+            self.stack.append([Glass(GLASS_CAPACITY)] * numberOfColumns)
         
     def pour(self, quantity):
         if quantity <= 0:
-            raise ValueError("Quantity must be greater than zero. Given quantity: %i" % quantity)
+            raise ValueError("Quantity must be greater than zero. Given quantity: %f" % quantity)
 
-        pass
+        for row in self.stack:
+            quantityToFill = quantity / (len(row))
+            for glass in row:
+                if quantityToFill >= glass.capacity:
+                    glass.fill(glass.capacity)
+                    quantity -= glass.capacity 
+                else:
+                    glass.fill(quantityToFill)
+                    quantity -= quantityToFill
+
+            if quantity <= 0:
+                break
 
     def getAmountAt(self, row, column):
-        pass
+        try:
+            return self.stack[row - 1][column - 1].volume
+        except IndexError:
+            raise ValueError("Glass does not exist with given row: %i column: %i" % (row, column))
         
